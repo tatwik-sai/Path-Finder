@@ -118,7 +118,7 @@ class PathFinder:
         :return: The next possible states from the given state.
         """
         row, col = state[0], state[1]
-        surrounding_blocks = [(row + 1, col), (row - 1, col), (row, col + 1), (row, col - 1)]
+        surrounding_blocks = [(row + 1, col), (row, col + 1), (row - 1, col), (row, col - 1)]
         next_blocks = []
         for pos in surrounding_blocks:
             if pos[0] < 0 or pos[0] >= self.shape[0] or pos[1] < 0 or pos[1] >= self.shape[1]:
@@ -178,7 +178,8 @@ class PathFinder:
                         rotate_degree = 270
                     elif self.path[0][1] < self.start_pos[1]:
                         rotate_degree = 180
-                    self.start_img = pygame.transform.scale(pygame.image.load('start.png'), (self.block_size, self.block_size))
+                    self.start_img = pygame.transform.scale(pygame.image.load('start.png'),
+                                                            (self.block_size, self.block_size))
                     self.start_img = pygame.transform.rotate(self.start_img, rotate_degree)
                 self.turned = True
                 self.constructing_path = True
